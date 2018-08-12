@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kidnapsteal.commit" >
+
+    <application
+        android:theme="@style/BaseTheme">
+        <activity android:name="com.kidnapsteal.commit.CommitActivity" />
+    </application>
+</manifest>

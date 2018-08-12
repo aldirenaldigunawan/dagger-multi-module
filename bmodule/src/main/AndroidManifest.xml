@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kidnapsteal.bmodule" >
+
+    <application
+        android:theme="@style/BTheme">
+        <activity android:name=".BActivity" />
+    </application>
+</manifest>

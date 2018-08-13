@@ -1,10 +1,11 @@
-package com.kidnapsteal.commit
+package com.kidnapsteal.commit.presentation
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.kidnapsteal.commit.R
 import com.kidnapsteal.commit.data.entity.Commit
 
 class CommitAdapter : RecyclerView.Adapter<CommitViewHolder>() {

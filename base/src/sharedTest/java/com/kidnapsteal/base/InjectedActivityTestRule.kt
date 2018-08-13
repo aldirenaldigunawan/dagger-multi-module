@@ -7,7 +7,7 @@ import androidx.test.rule.ActivityTestRule
 import dagger.android.DispatchingAndroidInjector
 
 class InjectedActivityTestRule<T : Activity>(
-        private val activityClass: Class<T>,
+        activityClass: Class<T>,
         private val dispatchingActivity: DispatchingAndroidInjector<Activity>) :
         ActivityTestRule<T>(activityClass, true, true) {
 

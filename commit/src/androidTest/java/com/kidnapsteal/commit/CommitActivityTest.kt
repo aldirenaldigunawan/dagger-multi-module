@@ -5,9 +5,11 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.kidnapsteal.base.InjectedActivityTestRule
-import com.kidnapsteal.base.createFakeActivityInjector
+import com.kidnapsteal.base.dispatchingActivity
 import com.kidnapsteal.commit.data.entity.Author
 import com.kidnapsteal.commit.data.entity.Commit
+import com.kidnapsteal.commit.presentation.CommitActivity
+import com.kidnapsteal.commit.presentation.CommitContract
 import com.nhaarman.mockitokotlin2.mock
 import org.junit.Before
 import org.junit.Rule
@@ -17,7 +19,7 @@ class CommitActivityTest {
 
     @get:Rule
     val rule = InjectedActivityTestRule(CommitActivity::class.java,
-            createFakeActivityInjector<CommitActivity> {
+            dispatchingActivity<CommitActivity> {
                 it.presenter = presenter
             })
     private val presenter: CommitContract.Presenter = mock()
@@ -39,7 +41,7 @@ class CommitActivityTest {
         rule.activity.runOnUiThread {
             view.renderCommits(commits)
         }
-        //TODO need to verify recycler view items
+
         onView(withId(R.id.recyclerView))
                 .check(matches(hasDescendant(withText("Author-1"))))
     }

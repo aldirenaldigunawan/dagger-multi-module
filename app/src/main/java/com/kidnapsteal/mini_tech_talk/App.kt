@@ -16,9 +16,9 @@ import javax.inject.Inject
 
 open class App : DaggerApplication(), HasActivityInjector {
 
-    lateinit var bComponent: BComponent
-    lateinit var baseComponent: BaseComponent
-    lateinit var commitComponent: CommitComponent
+    private lateinit var bComponent: BComponent
+    private lateinit var baseComponent: BaseComponent
+    private lateinit var commitComponent: CommitComponent
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
@@ -30,7 +30,7 @@ open class App : DaggerApplication(), HasActivityInjector {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         buildBaseComponent()
         buildBComponent()
-        buildCComponent()
+        buildCommitComponent()
         return DaggerAppComponent.builder()
                 .baseComponent(baseComponent)
                 .bComponent(bComponent)
@@ -38,15 +38,15 @@ open class App : DaggerApplication(), HasActivityInjector {
                 .application(this).build()
     }
 
-    fun buildBComponent() {
+    private fun buildBComponent() {
         bComponent = DaggerBComponent.builder().build()
     }
 
-    fun buildCComponent() {
+    private fun buildCommitComponent() {
         commitComponent = DaggerCommitComponent.builder().baseComponent(baseComponent).build()
     }
 
-    fun buildBaseComponent() {
+    private fun buildBaseComponent() {
         baseComponent = DaggerBaseComponent.create()
     }
 

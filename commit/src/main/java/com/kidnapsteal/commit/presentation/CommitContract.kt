@@ -1,4 +1,4 @@
-package com.kidnapsteal.commit
+package com.kidnapsteal.commit.presentation
 
 import com.kidnapsteal.base.BasePresenter
 import com.kidnapsteal.base.BaseView

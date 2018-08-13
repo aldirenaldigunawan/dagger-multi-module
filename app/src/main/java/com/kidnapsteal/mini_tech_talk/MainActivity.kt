@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.kidnapsteal.bmodule.BActivity
 import com.kidnapsteal.bmodule.BActivity.Companion.EXTRA_USER_ID
-import com.kidnapsteal.commit.CommitActivity
-import com.kidnapsteal.commit.CommitActivity.Companion.EXTRA_USER_NAME
-import com.kidnapsteal.commit.CommitActivity.Companion.EXTRA_USER_REPO
+import com.kidnapsteal.commit.presentation.CommitActivity
+import com.kidnapsteal.commit.presentation.CommitActivity.Companion.EXTRA_USER_NAME
+import com.kidnapsteal.commit.presentation.CommitActivity.Companion.EXTRA_USER_REPO
 import com.kidnapsteal.mini_tech_talk.presentation.a.AActivity
 import com.kidnapsteal.mini_tech_talk.presentation.a.AActivity.Companion.EXTRA_ID
 import com.kidnapsteal.mini_tech_talk.utils.onClick

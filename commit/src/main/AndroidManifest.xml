@@ -3,6 +3,6 @@
 
     <application
         android:theme="@style/BaseTheme">
-        <activity android:name="com.kidnapsteal.commit.CommitActivity" />
+        <activity android:name="com.kidnapsteal.commit.presentation.CommitActivity" />
     </application>
 </manifest>

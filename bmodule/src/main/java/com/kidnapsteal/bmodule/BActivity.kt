@@ -1,20 +1,23 @@
 package com.kidnapsteal.bmodule
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_b.*
 import javax.inject.Inject
 
-class BActivity : DaggerAppCompatActivity(), BContract.View {
+class BActivity : AppCompatActivity(), BContract.View {
 
-    @Inject
-    lateinit var presenter: BContract.Presenter
+    /**
+     * TODO Inject Presenter
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b)
 
-        presenter.attachView(this)
+        val extra = intent.getStringExtra(EXTRA_USER_ID)
+        renderSomething(extra)
     }
 
     override fun renderSomething(something: String) {

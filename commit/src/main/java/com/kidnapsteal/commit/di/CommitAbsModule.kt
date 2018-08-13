@@ -1,7 +1,7 @@
 package com.kidnapsteal.commit.di
 
-import com.kidnapsteal.commit.CommitContract
-import com.kidnapsteal.commit.CommitPresenter
+import com.kidnapsteal.commit.presentation.CommitContract
+import com.kidnapsteal.commit.presentation.CommitPresenter
 import com.kidnapsteal.commit.data.CommitRepository
 import com.kidnapsteal.commit.data.CommitRepositoryImpl
 import com.kidnapsteal.commit.domain.GetCommitUseCase

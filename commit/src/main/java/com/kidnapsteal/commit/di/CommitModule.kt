@@ -1,8 +1,7 @@
 package com.kidnapsteal.commit.di
 
-import android.app.Activity
-import com.kidnapsteal.commit.API
-import com.kidnapsteal.commit.CommitActivity
+import com.kidnapsteal.commit.data.remote.API
+import com.kidnapsteal.commit.presentation.CommitActivity
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

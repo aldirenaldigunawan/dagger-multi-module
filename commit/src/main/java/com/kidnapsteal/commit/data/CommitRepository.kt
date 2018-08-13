@@ -1,6 +1,6 @@
 package com.kidnapsteal.commit.data
 
-import com.kidnapsteal.commit.API
+import com.kidnapsteal.commit.data.remote.API
 import com.kidnapsteal.commit.data.entity.Commit
 import io.reactivex.Single
 import javax.inject.Inject

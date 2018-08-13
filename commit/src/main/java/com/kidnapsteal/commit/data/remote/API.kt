@@ -1,4 +1,4 @@
-package com.kidnapsteal.commit
+package com.kidnapsteal.commit.data.remote
 
 import com.kidnapsteal.commit.data.entity.GithubCommit
 import io.reactivex.Observable

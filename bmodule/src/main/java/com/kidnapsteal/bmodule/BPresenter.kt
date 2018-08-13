@@ -12,7 +12,7 @@ class BPresenter(private val userId: String) : BContract.Presenter {
     }
 
     override fun detachView() {
-
+        throw NotImplementedError("Need to implement onDetach")
     }
 
     private fun loadData() {

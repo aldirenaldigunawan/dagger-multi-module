@@ -1,6 +1,6 @@
 package com.kidnapsteal.commit.di
 
-import com.kidnapsteal.commit.CommitActivity
+import com.kidnapsteal.commit.presentation.CommitActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

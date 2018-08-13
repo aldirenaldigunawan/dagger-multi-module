@@ -6,8 +6,5 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import dagger.android.support.DaggerApplication
 
-@Component(modules = [
-    BActivityModule::class,
-    AndroidInjectionModule::class,
-    AndroidSupportInjectionModule::class])
-interface BComponent : AndroidInjector<DaggerApplication>
+@Component(modules = [BModule::class])
+interface BComponent

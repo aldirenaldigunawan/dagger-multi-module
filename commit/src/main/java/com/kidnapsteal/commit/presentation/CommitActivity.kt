@@ -1,9 +1,10 @@
-package com.kidnapsteal.commit
+package com.kidnapsteal.commit.presentation
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kidnapsteal.base.showToast
 import com.kidnapsteal.base.visible
+import com.kidnapsteal.commit.R
 import com.kidnapsteal.commit.data.entity.Commit
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_c.*

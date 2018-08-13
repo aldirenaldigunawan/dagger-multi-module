@@ -1,8 +1,6 @@
 package com.kidnapsteal.mini_tech_talk.di
 
 import com.kidnapsteal.base.di.BaseComponent
-import com.kidnapsteal.base.di.BaseModule
-import com.kidnapsteal.bmodule.di.BActivityModule
 import com.kidnapsteal.bmodule.di.BComponent
 import com.kidnapsteal.commit.di.CommitActivityBinding
 import com.kidnapsteal.commit.di.CommitComponent
@@ -17,7 +15,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     ActivityBindingModule::class,
-    BActivityModule::class,
     CommitActivityBinding::class,
     AndroidInjectionModule::class,
     AndroidSupportInjectionModule::class],

@@ -1,4 +1,4 @@
-package com.kidnapsteal.commit
+package com.kidnapsteal.commit.presentation
 
 import com.kidnapsteal.base.RxScheduler
 import com.kidnapsteal.base.composeIoUi

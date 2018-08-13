@@ -12,13 +12,8 @@ import org.junit.Test
 
 class BActivityTest {
 
-    val presenter: BContract.Presenter = mock()
-
     @get:Rule
-    val rule = BActivityTestRule {
-        (it as BActivity)
-        it.presenter = presenter
-    }
+    val rule = ActivityTestRule(BActivity::class.java)
 
     @Before
     fun setup() {

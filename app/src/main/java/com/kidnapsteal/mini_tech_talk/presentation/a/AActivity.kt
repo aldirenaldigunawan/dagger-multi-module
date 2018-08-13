@@ -14,6 +14,7 @@ class AActivity : DaggerAppCompatActivity(), AContract.View {
 
     companion object {
         const val EXTRA_ID = "AActivity_extra_id"
+        const val TAG = "AActivity"
     }
 
     @Inject
@@ -29,10 +30,19 @@ class AActivity : DaggerAppCompatActivity(), AContract.View {
 
         presenter.attachView(this)
         presenter.loadSomeething()
+
         textViewExtra.text = extraId
     }
 
     override fun renderSomething(list: List<String>) {
-        Log.d("AACtivity", "renderSomething : listSize --- ${list.size}")
+        Log.d(TAG, "renderSomething : listSize --- ${list.size}")
+    }
+
+    override fun showProgress(show: Boolean) {
+        Log.e(TAG, "showProgress --- $show")
+    }
+
+    override fun showError(message: String) {
+        Log.e(TAG, "showError --- $message")
     }
 }

@@ -1,13 +1,27 @@
 package com.kidnapsteal.mini_tech_talk.presentation.a
 
-import javax.inject.Inject
+import com.kidnapsteal.base.RxScheduler
+import com.kidnapsteal.base.composeIoUi
+import io.reactivex.disposables.CompositeDisposable
 
-class APresenter @Inject constructor(): AContract.Presenter{
+class APresenter(private val api: API,
+                 private val rxScheduler: RxScheduler) : AContract.Presenter {
 
     private lateinit var view: AContract.View
+    private val disposeOnDetach = CompositeDisposable()
 
     override fun loadSomeething() {
-        view.renderSomething(listOf("1","2","3"))
+        api.getRepos("rails")
+                .toObservable()
+                .flatMapIterable { it }
+                .map { it.name }
+                .toList()
+                .composeIoUi(rxScheduler, view)
+                .subscribe({
+                    view.renderSomething(it)
+                }, {}).let {
+                    disposeOnDetach.add(it)
+                }
     }
 
     override fun attachView(view: AContract.View) {
@@ -15,7 +29,7 @@ class APresenter @Inject constructor(): AContract.Presenter{
     }
 
     override fun detachView() {
-        throw NotImplementedError()
+        disposeOnDetach.dispose()
     }
 
 }

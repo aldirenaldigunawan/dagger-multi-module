@@ -14,7 +14,7 @@ class BActivity : AppCompatActivity()/*, BContract.View*/ {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b)
 
-        val extra = intent.getStringExtra(EXTRA_USER_ID)
+        val extra = intent.getStringExtra(EXTRA_USER_ID) ?: ""
         renderSomething(extra)
     }
 

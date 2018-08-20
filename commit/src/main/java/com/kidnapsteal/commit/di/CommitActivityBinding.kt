@@ -7,7 +7,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class CommitActivityBinding {
 
-    @ContributesAndroidInjector(modules = [CommitModule::class, CommitAbsModule::class, NetworkModule::class])
+    @ContributesAndroidInjector(modules = [CommitModule::class, CommitAbsModule::class])
     abstract fun cActivity(): CommitActivity
 
 }

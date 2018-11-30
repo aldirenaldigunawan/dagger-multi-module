@@ -11,8 +11,8 @@ But, with Dagger 2 Android all the pain setup could be gone by simpy intercept t
 activity test easy as it looks : 
 ```kotlin
 @get:Rule
-val rule = InjectedActivityTestRule(MainActivity::class.java,
-            dispatchingActivity<MainActivity> {
+val rule = InjectedActivityTestRule(YourActivity::class.java,
+            dispatchingActivity<YourActivity> {
                 it.presenter = mock()
             })
 ```

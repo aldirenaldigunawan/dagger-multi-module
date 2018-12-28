@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.1"
+    buildToolsVersion "28.0.3"
 
 
     defaultConfig {
@@ -72,6 +72,6 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-android:2.21.0"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1"
     androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1"
-    compile project(path: ':base')
+    implementation project(':base')
 
 }

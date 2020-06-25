@@ -1,37 +1,47 @@
 package com.kidnapsteal.mini_tech_talk
 
 import android.app.Activity
+import android.app.Application
 import com.kidnapsteal.base.di.BaseComponent
-import com.kidnapsteal.base.di.DaggerBaseComponent
 import com.kidnapsteal.bmodule.di.BComponent
-import com.kidnapsteal.bmodule.di.DaggerBComponent
 import com.kidnapsteal.commit.di.CommitComponent
-import com.kidnapsteal.commit.di.DaggerCommitComponent
-import com.kidnapsteal.mini_tech_talk.di.DaggerAppComponent
+import com.kidnapsteal.mini_tech_talk.di.AppComponent
+import dagger.Dagger
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.DaggerApplication
 import javax.inject.Inject
 
-open class App : DaggerApplication(), HasActivityInjector {
+open class App : Application(), HasAndroidInjector {
 
     private lateinit var bComponent: BComponent
     private lateinit var baseComponent: BaseComponent
     private lateinit var commitComponent: CommitComponent
+    private lateinit var appComponent: AppComponent
 
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
-    override fun activityInjector(): DispatchingAndroidInjector<Activity> {
-        return dispatchingAndroidInjector
+    override fun androidInjector(): AndroidInjector<Any> {
+        return appComponent.androidInjector()
     }
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+    override fun onCreate() {
+        super.onCreate()
         buildBaseComponent()
         buildBComponent()
         buildCommitComponent()
-        return DaggerAppComponent.builder()
+        buildAppComponent()
+    }
+
+//    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+//        buildBaseComponent()
+//        buildBComponent()
+//        buildCommitComponent()
+//        buildAppComponent()
+//        return appComponent
+//    }
+
+    private fun buildAppComponent(){
+        appComponent = Dagger.builder(AppComponent.Builder::class.java)
                 .baseComponent(baseComponent)
                 .bComponent(bComponent)
                 .cComponent(commitComponent)
@@ -39,15 +49,18 @@ open class App : DaggerApplication(), HasActivityInjector {
     }
 
     private fun buildBComponent() {
-        bComponent = DaggerBComponent.builder().build()
+        bComponent = Dagger.builder(BComponent.builder::class.java).build()
     }
 
     private fun buildCommitComponent() {
-        commitComponent = DaggerCommitComponent.builder().baseComponent(baseComponent).build()
+        commitComponent = Dagger.builder(CommitComponent.Builder::class.java)
+                .baseComponent(baseComponent)
+                .build()
+
     }
 
     private fun buildBaseComponent() {
-        baseComponent = DaggerBaseComponent.create()
+        baseComponent = Dagger.create(BaseComponent::class.java)
     }
 
 }

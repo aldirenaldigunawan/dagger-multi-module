@@ -8,6 +8,7 @@ import com.kidnapsteal.mini_tech_talk.App
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
@@ -17,7 +18,9 @@ import javax.inject.Singleton
     CommitActivityBinding::class,
     AndroidSupportInjectionModule::class],
         dependencies = [BaseComponent::class, BComponent::class, CommitComponent::class])
-interface AppComponent : AndroidInjector<App> {
+interface AppComponent {
+
+    fun <T> androidInjector(): DispatchingAndroidInjector<T>
 
     @Component.Builder
     interface Builder {

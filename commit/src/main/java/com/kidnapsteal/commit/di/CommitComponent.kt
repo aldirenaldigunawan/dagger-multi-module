@@ -12,4 +12,10 @@ import retrofit2.Retrofit
         dependencies = [BaseComponent::class])
 interface CommitComponent{
     fun retrofit(): Retrofit
+
+    @Component.Builder
+    interface Builder{
+        fun baseComponent(comp: BaseComponent): Builder
+        fun build(): CommitComponent
+    }
 }

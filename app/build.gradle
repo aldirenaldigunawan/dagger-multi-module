@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.soundcloud.delect'
+
 
 android {
     compileSdkVersion 28
@@ -22,10 +24,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 ext {
-    daggerVersion = '2.16'
+    daggerVersion = '2.28.1'
     rxJava =  '2.1.12'
     rxAndroid = '2.0.2'
 }

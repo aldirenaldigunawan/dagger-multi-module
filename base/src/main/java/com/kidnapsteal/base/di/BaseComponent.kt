@@ -14,4 +14,9 @@ import retrofit2.Retrofit
     AndroidSupportInjectionModule::class])
 interface BaseComponent : AndroidInjector<DaggerApplication> {
     fun rxScheduler(): RxScheduler
+
+    @Component.Builder
+    interface Builder{
+        fun build(): BaseComponent
+    }
 }

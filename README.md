@@ -24,3 +24,7 @@ val rule = InjectedActivityTestRule(YourActivity::class.java,
 - [Retrofit](https://square.github.io/retrofit/) for network calls
 - [OkHttp](http://square.github.io/okhttp/) for network interceptor(Debugging and so on)
 - [RxJava 2](https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0) for reactive programming
+
+
+## this project original source : [Here](https://github.com/kidnapsteal/multiple-module-dagger-2)
+as i lost the credential and cant recover, i've decided to move the project here to my current github account
